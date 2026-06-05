@@ -9,7 +9,10 @@ function Register() {
   });
 
   const register = async () => {
-    await axios.post("http://localhost:5000/api/auth/register", data);
+    await axios.post(
+      "https://smartwait-d81m.onrender.com/api/auth/register",
+      data,
+    );
 
     alert("Registered Successfully");
 

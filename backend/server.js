@@ -6,12 +6,20 @@ const { Server } = require("socket.io");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: { origin: "*" },
+  cors: {
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+  },
 });
 
 // MongoDB

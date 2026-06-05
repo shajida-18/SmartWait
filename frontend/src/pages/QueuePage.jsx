@@ -9,7 +9,9 @@ function QueuePage() {
 
   // ✅ ADD HERE
   const loadQueue = async () => {
-    const res = await axios.get(`http://localhost:5000/api/queue/${id}`);
+    const res = await axios.get(
+      `https://smartwait-d81m.onrender.com/api/queue/${id}`,
+    );
 
     setQueue(res.data);
   };
@@ -23,9 +25,12 @@ function QueuePage() {
     try {
       const user = JSON.parse(localStorage.getItem("user"));
 
-      await axios.post(`http://localhost:5000/api/queue/join/${id}`, {
-        userId: user._id,
-      });
+      await axios.post(
+        `https://smartwait-d81m.onrender.com/api/queue/join/${id}`,
+        {
+          userId: user._id,
+        },
+      );
 
       alert("Joined Queue");
 

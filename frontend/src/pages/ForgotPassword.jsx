@@ -8,7 +8,7 @@ function ForgotPassword() {
   const handleForgotPassword = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/forgot-password",
+        "https://smartwait-d81m.onrender.com/api/auth/forgot-password",
         { email },
       );
 

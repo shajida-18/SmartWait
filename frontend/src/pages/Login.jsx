@@ -9,10 +9,13 @@ function Login() {
 
   const login = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        "https://smartwait-d81m.onrender.com/api/auth/login",
+        {
+          email,
+          password,
+        },
+      );
 
       localStorage.setItem("user", JSON.stringify(res.data.user));
 

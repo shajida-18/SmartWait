@@ -9,7 +9,9 @@ function Dashboard() {
   // LOAD QUEUES
   const loadQueues = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/queue");
+      const res = await axios.get(
+        "https://smartwait-d81m.onrender.com/api/queue",
+      );
 
       setQueues(res.data);
     } catch (err) {
