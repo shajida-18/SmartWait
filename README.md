@@ -1,0 +1,1 @@
+smartwaittt.netlify.app
