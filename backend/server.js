@@ -8,7 +8,7 @@ require("dotenv").config();
 const app = express();
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: ["https://smartwaittt.netlify.app"],
     credentials: true,
   }),
 );
@@ -17,7 +17,7 @@ app.use(express.json());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL,
+    origin: "https://smartwaittt.netlify.app",
     credentials: true,
   },
 });
@@ -37,4 +37,8 @@ io.on("connection", (socket) => {
 app.use("/api/auth", require("./routes/AuthRoutes"));
 app.use("/api/queue", require("./routes/QueueRoutes"));
 
-server.listen(5000, () => console.log("Server running"));
+const PORT = process.env.PORT || 5000;
+
+server.listen(PORT, () => {
+  console.log("Server running on", PORT);
+});
